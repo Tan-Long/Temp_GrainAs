@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="source/st-favicon.ico" type="image/x-icon">
+    <title>Trang chủ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(to right, #f8f9fa, #e6f2ff, #d4e5ff);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 0.6rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+
+        .logo {
+            height: 32px;
+            display: block;
+        }
+
+        .logo-link {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+            white-space: nowrap;
+        }
+
+        .nav-links a {
+            color: #2d5b9e;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(30, 144, 255, 0.1);
+            color: #1a56bd;
+        }
+
+        /* Gallery */
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .gallery {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        .overlay p {
+            font-size: 1.5rem;
+            max-width: 80%;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+                /* Footer */
+.footer {
+    background: linear-gradient(to right,#3aa2de, #007dc5);
+    color: white;
+    padding: 2rem 0 1rem 0;
+    margin-top: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo-section {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hus-logo {
+    width: 120px;
+    margin-bottom: 1rem;
+}
+
+.university-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.university-info p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.project-info {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.project-info h4, .contact-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-info p, .contact-info p {
+    margin-bottom: 0.7rem;
+    line-height: 1.6;
+}
+
+.contact-person {
+    margin-bottom: 1.5rem;
+}
+
+.email-icon::before {
+    content: "✉ ";
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-logo-section, .project-info, .contact-info {
+        min-width: 100%;
+    }
+
+    .footer-logo-section {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .footer-logo-section {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+    }
+
+    .hus-logo {
+        width: 100px;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+}
+<!-- CSS cho Container -->
+.features-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    font-size: 2rem;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    margin: 15px auto 0;
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 300px;
+}
+
+.feature-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-description {
+    color: #7f8c8d;
+    line-height: 1.6;
+    flex-grow: 1;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-description p {
+    margin: 0;
+}
+
+.button-container {
+    margin-top: 1.5rem;
+    text-align: center;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-button {
+    display: inline-block;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.feature-button:hover {
+    background: linear-gradient(to right, #2980b9, #1a5276);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        max-width: 100%;
+    }
+
+    .feature-title {
+        height: auto;
+        min-height: 60px;
+    }
+
+    .feature-description {
+        min-height: auto;
+    }
+}
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .nav-links li {
+                margin: 0 8px;
+            }
+
+            .overlay h2 {
+                font-size: 2rem;
+            }
+
+            .overlay p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .logo-container {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 5px;
+            }
+
+            .gallery-container {
+                height: 400px;
+            }
+
+            .overlay h2 {
+                font-size: 1.8rem;
+            }
+
+            .overlay p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-container {
+                height: 300px;
+            }
+
+            .overlay h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="home.html" class="logo-link">
+                    <img src="source/soiltech-logo.png" alt="SoilTECH Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Trang Chủ</a></li>
+                <li><a href="dudoan.html">Dự đoán nồng độ Asen trong gạo</a></li>
+                <li><a href="kichbanbiendoikhihau.html">Kịch bản biến đổi khí hậu tác động tới nồng độ Asen</a></li>
+                <li><a href="docs.html">Tài liệu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="gallery-container">
+        <div class="gallery">
+            <!-- Các slide sẽ được thêm vào bằng JavaScript -->
+            <div class="overlay">
+                <h2>Tác động của biến đổi khí hậu ảnh hưởng tới nồng độ Asen trong gạo</h2>
+                <p>Đe dọa tới an ninh đất và an toàn thực phẩm</p>
+            </div>
+        </div>
+    </div>
+    <section class="content-section">
+    <!-- Container 1: Giới thiệu vấn đề -->
+    <div class="content-container">
+        <div class="content-image">
+            <img src="source/images/arsenic-rice-problem.jpg" alt="Vấn đề Arsenic trong gạo">
+        </div>
+        <div class="content-text">
+            <h2 class="content-title">Giới thiệu vấn đề</h2>
+            <div class="content-description">
+                <p>Arsenic (As) là một nguyên tố độc hại tồn tại tự nhiên trong môi trường, có khả năng tích lũy trong hạt gạo và gây ra nhiều vấn đề sức khỏe nghiêm trọng cho con người. Với hơn một nửa dân số thế giới phụ thuộc vào gạo làm lương thực chính, sự tích lũy Arsenic trong gạo đang trở thành mối lo ngại toàn cầu, đặc biệt trong bối cảnh biến đổi khí hậu ngày càng gia tăng.</p>
+                <p>Biến đổi khí hậu làm thay đổi các điều kiện môi trường đất-nước, ảnh hưởng trực tiếp đến sự chuyển hóa và hấp thu Arsenic trong cây lúa. Nghiên cứu cho thấy khi nhiệt độ tăng cao có thể làm tăng gấp đôi nồng độ Arsenic vô cơ trong gạo, gây ra mối đe dọa nghiêm trọng đến an toàn thực phẩm.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 2: Phương pháp nghiên cứu -->
+    <div class="content-container reverse">
+        <div class="content-image">
+            <img src="source/images/research-method.jpg" alt="Phương pháp nghiên cứu">
+        </div>
+        <div class="content-text">
+            <h2 class="content-title">Phương pháp nghiên cứu</h2>
+            <div class="content-description">
+                <ul>
+                    <li><strong>Thu thập dữ liệu:</strong> Nghiên cứu sử dụng bộ dữ liệu gồm 1174 mẫu từ các vùng trồng lúa khắp Việt Nam, bao gồm thông tin về đặc tính đất, điều kiện khí hậu và nồng độ Arsenic trong hạt gạo.</li>
+                    <li><strong>Phát triển mô hình học máy:</strong> Ứng dụng các thuật toán XGBoost và Random Forest để xây dựng mô hình dự đoán nồng độ Arsenic trong gạo dựa trên các yếu tố môi trường và khí hậu.</li>
+                    <li><strong>Mô phỏng kịch bản biến đổi khí hậu:</strong> Sử dụng hai kịch bản biến đổi khí hậu RCP 4.5 (kịch bản phát thải trung bình) và RCP 8.5 (kịch bản phát thải cao) để dự đoán xu hướng tích lũy Arsenic trong gạo đến năm 2100.</li>
+                    <li><strong>Phân tích xu hướng:</strong> Đánh giá mối tương quan giữa các yếu tố khí hậu với sự tích lũy Arsenic.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 3: Ý nghĩa của nghiên cứu -->
+    <div class="content-container">
+        <div class="content-image">
+            <img src="source/images/research-significance.jpg" alt="Ý nghĩa của nghiên cứu">
+        </div>
+        <div class="content-text">
+            <h2 class="content-title">Ý nghĩa của nghiên cứu</h2>
+            <div class="content-description">
+                <ul>
+                    <li><strong>Đóng góp khoa học:</strong> Cung cấp hiểu biết mới về mối liên hệ giữa biến đổi khí hậu và sự tích lũy Arsenic trong gạo, góp phần làm phong phú thêm kiến thức về an toàn lương thực.</li>
+                    <li><strong>Công cụ dự báo:</strong> Phát triển công cụ dự đoán có khả năng ước tính nồng độ Arsenic trong gạo dựa trên các điều kiện môi trường và khí hậu, giúp cảnh báo sớm các khu vực có nguy cơ cao.</li>
+                    <li><strong>Hỗ trợ hoạch định chính sách:</strong> Cung cấp thông tin khoa học cho các nhà hoạch định chính sách trong việc xây dựng chiến lược ứng phó với biến đổi khí hậu và đảm bảo an toàn thực phẩm.</li>
+                    <li><strong>Hướng dẫn thực hành nông nghiệp:</strong> Đề xuất các biện pháp canh tác có thể giúp giảm thiểu sự tích lũy Arsenic trong gạo.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container 4: Tầm nhìn trong tương lai -->
+    <div class="content-container reverse">
+        <div class="content-image">
+            <img src="source/images/future-vision.jpg" alt="Tầm nhìn trong tương lai">
+        </div>
+        <div class="content-text">
+            <h2 class="content-title">Tầm nhìn trong tương lai</h2>
+            <div class="content-description">
+                <p>Nghiên cứu về ảnh hưởng của biến đổi khí hậu đến nồng độ Arsenic trong gạo mở ra nhiều hướng phát triển quan trọng:</p>
+                <ul>
+                    <li><strong>Mở rộng mô hình dự báo:</strong> Phát triển mô hình dự báo toàn diện hơn với khả năng tích hợp dữ liệu thời gian thực từ các trạm quan trắc.</li>
+                    <li><strong>Phát triển giống lúa kháng Arsenic:</strong> Đẩy mạnh nghiên cứu và lai tạo các giống lúa có khả năng hạn chế hấp thu Arsenic.</li>
+                    <li><strong>Kỹ thuật canh tác thích ứng:</strong> Xây dựng và phổ biến các kỹ thuật canh tác lúa mới, thích ứng với biến đổi khí hậu.</li>
+                    <li><strong>Hệ thống cảnh báo tích hợp:</strong> Phát triển hệ thống cảnh báo trên nền tảng số, giúp điều chỉnh kế hoạch canh tác kịp thời.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CSS cho các Container -->
+<style>
+.content-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.content-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.content-image {
+    flex: 1;
+    height: 400px;
+    overflow: hidden;
+}
+
+.content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.content-container:hover .content-image img {
+    transform: scale(1.05);
+}
+
+.content-text {
+    flex: 1;
+    padding: 2.5rem;
+}
+
+.content-title {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.content-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+}
+
+.content-description {
+    color: #636e72;
+    line-height: 1.8;
+}
+
+.content-description p {
+    margin-bottom: 1rem;
+}
+
+.content-description ul {
+    padding-left: 1.5rem;
+}
+
+.content-description li {
+    margin-bottom: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .content-container,
+    .content-container.reverse {
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .content-image {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-image {
+        height: 250px;
+    }
+
+    .content-text {
+        padding: 1.5rem;
+    }
+
+    .content-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-image {
+        height: 200px;
+    }
+}
+</style>
+<!-- Container cho 3 phần chính -->
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title">Các tính năng chính</h2>
+
+        <div class="features-container">
+            <!-- Phần 1: Dự đoán nồng độ Asen -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="source/icons/prediction-icon.png" alt="Biểu tượng dự đoán">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Dự đoán nồng độ Asen trong gạo</h3>
+                    <div class="feature-description">
+                        <p>Ứng dụng Machine Learning để dự đoán nồng độ Asen trong gạo dựa trên các yếu tố môi trường và khí hậu.</p>
+                    </div>
+                    <div class="button-container">
+                        <a href="dudoan.html" class="feature-button">Khám phá ngay</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phần 2: Kịch bản biến đổi khí hậu -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="source/icons/climate-icon.png" alt="Biểu tượng khí hậu">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Kịch bản biến đổi khí hậu tác động tới nồng độ Asen</h3>
+                    <div class="feature-description">
+                        <p>Phân tích các kịch bản biến đổi khí hậu và ảnh hưởng của chúng đến sự tích tụ Asen trong gạo.</p>
+                    </div>
+                    <div class="button-container">
+                        <a href="kichbanbiendoikhihau.html" class="feature-button">Khám phá ngay</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phần 3: Tài liệu -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="source/icons/document-icon.png" alt="Biểu tượng tài liệu">
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Tài liệu</h3>
+                    <div class="feature-description">
+                        <p>Tổng hợp các nghiên cứu, báo cáo khoa học và tài liệu tham khảo về mối quan hệ giữa biến đổi khí hậu và sự tích tụ Asen trong gạo.</p>
+                    </div>
+                    <div class="button-container">
+                        <a href="docs.html" class="feature-button">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer HTML -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Logo và tên trường bên trái -->
+                <div class="footer-logo-section">
+                    <img src="source/hus-logo.png" alt="Logo HUS" class="hus-logo">
+                    <div class="university-info">
+                        <h3>Trường Đại học Khoa học Tự nhiên</h3>
+                        <p>Hội nghị Khoa học Sinh viên năm 2025</p>
+                    </div>
+                </div>
+
+                <!-- Thông tin dự án ở giữa -->
+                <div class="project-info">
+                    <h4>Thông tin dự án</h4>
+                    <p><strong>Tên dự án:</strong> Ứng dụng máy học dự đoán khả năng tích lũy Arsenic trong gạo dưới tác động của biến đổi khí hậu</p>
+                    <p><strong>Sinh viên thực hiện:</strong> Nguyễn Hữu Tân Long, K67 Khoa học Môi trường</p>
+                    <p><strong>Giáo viên hướng dẫn:</strong> GS.TS. Nguyễn Ngọc Minh, Khoa Môi trường – Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội</p>
+                </div>
+
+                <!-- Thông tin liên hệ bên phải -->
+                <div class="contact-info">
+                    <h4>Thông tin liên hệ</h4>
+                    <div class="contact-person">
+                        <p><strong>Sinh viên:</strong> Nguyễn Hữu Tân Long</p>
+                        <p><i class="email-icon"></i> nguyenhuutanlong_t67@hus.edu.vn</p>
+                    </div>
+                    <div class="contact-person">
+                        <p><strong>Giáo viên hướng dẫn:</strong> GS.TS. Nguyễn Ngọc Minh</p>
+                        <p><i class="email-icon"></i> minhnn@vnu.edu.vn</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phần dưới cùng của footer -->
+            <div class="footer-bottom">
+                <p>© 2025 SoilTECH - Trường ĐHKHTN-ĐHQGHN</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Danh sách các ảnh
+        const images = [
+            "source/gallery/1.png",
+            "source/gallery/2.png",
+            "source/gallery/3.png",
+            "source/gallery/4.png",
+            "source/gallery/5.png",
+            "source/gallery/6.png",
+            "source/gallery/7.png",
+        ];
+
+        // Tạo các slide
+        const gallery = document.querySelector('.gallery');
+        const overlay = document.querySelector('.overlay');
+
+        // Thêm các slide vào gallery
+        images.forEach((image, index) => {
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+            if (index === 0) {
+                slide.classList.add('active');
+            }
+            slide.style.backgroundImage = `url(${image})`;
+            gallery.insertBefore(slide, overlay);
+        });
+
+        // Hàm tự động chuyển ảnh
+        let currentSlide = 0;
+        function changeSlide() {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Thiết lập interval để tự động chuyển ảnh mỗi 3 giây
+        setInterval(changeSlide, 3000);
+    </script>
+</body>
+</html>
