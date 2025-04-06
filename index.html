@@ -224,6 +224,262 @@
     font-size: 0.9rem;
     opacity: 0.8;
 }
+/* docs.css - Các kiểu dành riêng cho trang tài liệu */
+
+/* ===== CONTAINER CHÍNH ===== */
+.docs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #333;
+}
+
+/* ===== HEADER CỦA TÀI LIỆU ===== */
+.docs-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.docs-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.docs-subtitle {
+    font-size: 1.2rem;
+    color: #505f79;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ===== SECTION TRANG TÀI LIỆU ===== */
+.docs-section {
+    margin-bottom: 4rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.docs-section .section-title {
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    padding: 1.5rem;
+    margin: 0;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.docs-content {
+    padding: 2rem;
+}
+
+.docs-content h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.docs-content h4 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== TEXT CONTENT ===== */
+.text-content {
+    color: #4a4a4a;
+    line-height: 1.7;
+}
+
+.text-content p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+.text-content ul,
+.text-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.text-content li {
+    margin-bottom: 0.7rem;
+}
+
+/* ===== HÌNH ẢNH ===== */
+.image-container {
+    margin: 2rem 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 1rem;
+    color: #666;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* ===== BẢNG DỮ LIỆU ===== */
+.result-table {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.result-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+}
+
+.result-table th {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.result-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.result-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.result-table tr:hover {
+    background-color: #f1f9ff;
+}
+
+/* ===== TÀI LIỆU THAM KHẢO ===== */
+.references-list {
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+
+.references-list li {
+    margin-bottom: 1rem;
+}
+
+.references-list a {
+    color: #3498db;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.references-list a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .docs-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .docs-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .docs-section .section-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .docs-header {
+        padding: 1.5rem 0;
+    }
+
+    .docs-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .docs-content {
+        padding: 1.5rem;
+    }
+
+    .docs-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .image-container {
+        margin: 1.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .docs-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .docs-subtitle {
+        font-size: 1rem;
+    }
+
+    .docs-section .section-title {
+        font-size: 1.4rem;
+        padding: 1.2rem;
+    }
+
+    .docs-content {
+        padding: 1.2rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .docs-container {
+        max-width: 100%;
+        padding: 0;
+        color: black;
+    }
+
+    .docs-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        margin-bottom: 2rem;
+    }
+
+    .docs-section .section-title {
+        background: none;
+        color: black;
+        border-bottom: 2px solid #333;
+    }
+
+    .image-container {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        background: none;
+        box-shadow: none;
+    }
+
+    .result-table th {
+        background-color: #f0f0f0;
+        color: black;
+    }
+}
 
 /* Responsive design */
 @media (max-width: 992px) {
@@ -490,247 +746,243 @@
             </div>
         </div>
     </div>
-    <section class="content-section">
-    <!-- Container 1: Giới thiệu vấn đề -->
-    <div class="content-container">
-        <div class="content-image">
-            <img src="source/images/arsenic-rice-problem.jpg" alt="Vấn đề Arsenic trong gạo">
-        </div>
-        <div class="content-text">
-            <h2 class="content-title">Giới thiệu vấn đề</h2>
-            <div class="content-description">
-                <p>Arsenic (As) là một nguyên tố độc hại tồn tại tự nhiên trong môi trường, có khả năng tích lũy trong hạt gạo và gây ra nhiều vấn đề sức khỏe nghiêm trọng cho con người. Với hơn một nửa dân số thế giới phụ thuộc vào gạo làm lương thực chính, sự tích lũy Arsenic trong gạo đang trở thành mối lo ngại toàn cầu, đặc biệt trong bối cảnh biến đổi khí hậu ngày càng gia tăng.</p>
-                <p>Biến đổi khí hậu làm thay đổi các điều kiện môi trường đất-nước, ảnh hưởng trực tiếp đến sự chuyển hóa và hấp thu Arsenic trong cây lúa. Nghiên cứu cho thấy khi nhiệt độ tăng cao có thể làm tăng gấp đôi nồng độ Arsenic vô cơ trong gạo, gây ra mối đe dọa nghiêm trọng đến an toàn thực phẩm.</p>
-            </div>
-        </div>
+    <div class="docs-container">
+    <div class="docs-header">
+        <h1>Tài liệu nghiên cứu</h1>
+        <p class="docs-subtitle">Ứng dụng máy học dự đoán khả năng tích lũy Arsenic trong gạo dưới tác động của biến đổi khí hậu</p>
     </div>
 
-    <!-- Container 2: Phương pháp nghiên cứu -->
-    <div class="content-container reverse">
-        <div class="content-image">
-            <img src="source/images/research-method.jpg" alt="Phương pháp nghiên cứu">
+    <!-- Phần 1: Đặt vấn đề -->
+    <section class="docs-section" id="introduction">
+        <h2 class="section-title">Đặt vấn đề</h2>
+        <div class="docs-content">
+            <div class="text-content">
+                <p>Asen là một thành phần tự nhiên của vỏ trái đất và được phân bố rộng trong môi trường không khí, nước và đất. Việc phơi nhiễm với As sẽ ảnh hưởng xấu tới phổi và tim mạch, đặc biệt As còn là được ghi nhận là tiền thân của ung thư. Một trong những nguồn phơi nhiễm asen chính ảnh hưởng trực tiếp đến sức khoẻ đến từ As tích luỹ trong gạo, khi gạo là nguồn lương thực chính cho 50% dân số trên thế giới, đặc biệt là ở các nước châu Á như Việt Nam.</p>
+
+                <p>Quá trình tích lũy Asen trong gạo là một quá trình phức tạp, trong đó sự tương tác giữa các yếu tố môi trường (thuộc tính đất, khí hậu) và nồng độ Asen trong gạo diễn ra theo cách phi tuyến tính. Ma trận tương quan trực tiếp cho thấy mối tương quan tuyến tính trực tiếp giữa các yếu tố đầu vào và nồng độ asen trong gạo thường rất thấp. Đáng chú ý là không có một nhân tố đơn lẻ nào có tác động trực tiếp và duy nhất đến sự tích lũy asen trong gạo, ngay cả nồng độ asen trong đất cũng không quyết định hoàn toàn hàm lượng asen trong hạt gạo theo một quy luật tuyến tính đơn giản.</p>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/arsenic-problem.jpg') }}" alt="Vấn đề Asen trong gạo">
+                    <p class="image-caption">Hình 1: Minh họa vấn đề Asen trong gạo và tác động đến sức khỏe con người</p>
+                </div>
+
+                <p>Ngoài ra trong bối cảnh tình hình biến đổi khí hậu ngày càng phức tạp hiện nay, một câu hỏi quan trọng được đặt ra là liệu sự thay đổi về nhiệt độ và lượng mưa có ảnh hưởng đến nồng độ asen trong đất và do đó thay đổi đến sự tích lũy asen trong lúa gạo hay không. Các nghiên cứu đã chỉ ra rằng biến đổi khí hậu có thể làm thay đổi hành vi của asen trong đất và phản ứng của cây trồng, dẫn đến những hậu quả chưa lường trước được đối với năng suất và chất lượng gạo.</p>
+
+                <p>Do đó, việc xây dựng một mô hình có khả năng kiểm soát và dự đoán nồng độ asen trong gạo dưới các kịch bản biến đổi khí hậu khác nhau là vô cùng cần thiết. Mô hình này sẽ cung cấp những thông tin quan trọng cho việc đánh giá rủi ro, xây dựng các biện pháp giảm thiểu và đảm bảo an ninh lương thực, an toàn thực phẩm trong tương lai.</p>
+            </div>
         </div>
-        <div class="content-text">
-            <h2 class="content-title">Phương pháp nghiên cứu</h2>
-            <div class="content-description">
+    </section>
+
+    <!-- Phần 2: Xây dựng mô hình -->
+    <section class="docs-section" id="model-building">
+        <h2 class="section-title">Xây dựng mô hình</h2>
+
+        <div class="docs-content">
+            <h3>Thu thập dữ liệu</h3>
+            <div class="text-content">
+                <p>Nghiên cứu này sử dụng một bộ số liệu bao gồm thông tin về hàm lượng Asen trong đất và gạo, cùng với các dữ liệu chi tiết về các thuộc tính của đất và điều kiện khí hậu tại các vùng trồng lúa khác nhau ở Việt Nam.</p>
+
+                <p>Bộ số liệu: Bộ số liệu sử dụng bao gồm thông tin về hàm lượng Asen trong đất và gạo, cùng với các số liệu về các tính chất đất (ví dụ: pH, hàm lượng chất hữu cơ, Mn trong đất, Fe trong đất, Al trong đất, P trong đất, S trong đất, hàm lượng sét trong đất) và các yếu tố khí hậu (ví dụ: nhiệt độ, lượng mưa).</p>
+
+                <p>Số lượng mẫu: Tổng cộng có 1174 mẫu đồng thời của đất, gạo đã được thu thập và sử dụng trong nghiên cứu này.</p>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/sampling-map.jpg') }}" alt="Bản đồ phân bố mẫu">
+                    <p class="image-caption">Hình 2: Bản đồ phân bố các điểm lấy mẫu trên khắp Việt Nam</p>
+                </div>
+            </div>
+
+            <h3>Tiền xử lý dữ liệu</h3>
+            <div class="text-content">
+                <p>Để chuẩn bị dữ liệu cho mô hình dự đoán nồng độ Asen trong gạo phải trải qua một quá trình tiền xử lý:</p>
                 <ul>
-                    <li><strong>Thu thập dữ liệu:</strong> Nghiên cứu sử dụng bộ dữ liệu gồm 1174 mẫu từ các vùng trồng lúa khắp Việt Nam, bao gồm thông tin về đặc tính đất, điều kiện khí hậu và nồng độ Arsenic trong hạt gạo.</li>
-                    <li><strong>Phát triển mô hình học máy:</strong> Ứng dụng các thuật toán XGBoost và Random Forest để xây dựng mô hình dự đoán nồng độ Arsenic trong gạo dựa trên các yếu tố môi trường và khí hậu.</li>
-                    <li><strong>Mô phỏng kịch bản biến đổi khí hậu:</strong> Sử dụng hai kịch bản biến đổi khí hậu RCP 4.5 (kịch bản phát thải trung bình) và RCP 8.5 (kịch bản phát thải cao) để dự đoán xu hướng tích lũy Arsenic trong gạo đến năm 2100.</li>
-                    <li><strong>Phân tích xu hướng:</strong> Đánh giá mối tương quan giữa các yếu tố khí hậu với sự tích lũy Arsenic.</li>
+                    <li>Loại bỏ mẫu không có thông tin về nồng độ Asen trong gạo</li>
+                    <li>Loại bỏ outlier bằng phương pháp khoảng tứ phân vị (IQR)</li>
+                    <li>Điền giá trị còn thiếu bằng phương pháp MICE kết hợp Random Forest</li>
+                </ul>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/data-preprocessing.jpg') }}" alt="Quy trình tiền xử lý dữ liệu">
+                    <p class="image-caption">Hình 3: Quy trình tiền xử lý dữ liệu</p>
+                </div>
+            </div>
+
+            <h3>Xây dựng mô hình</h3>
+            <div class="text-content">
+                <p>Nghiên cứu lựa chọn các phương pháp học máy dựa trên cây quyết định (tree-based models) thay vì sử dụng các phương pháp tuyến tính truyền thống. Các mô hình chính được sử dụng:</p>
+                <ul>
+                    <li>Random Forest</li>
+                    <li>XGBoost</li>
+                    <li>Weighted Ensemble (kết hợp hai mô hình trên)</li>
+                </ul>
+
+                <div class="result-table">
+                    <h4>So sánh hiệu suất các mô hình</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mô hình</th>
+                                <th>Train RMSE</th>
+                                <th>Test RMSE</th>
+                                <th>Train R²</th>
+                                <th>Test R²</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>XGBoost</td>
+                                <td>0.028790</td>
+                                <td>0.076668</td>
+                                <td>0.923347</td>
+                                <td>0.475532</td>
+                            </tr>
+                            <tr>
+                                <td>RandomForest</td>
+                                <td>0.049582</td>
+                                <td>0.077197</td>
+                                <td>0.772653</td>
+                                <td>0.468263</td>
+                            </tr>
+                            <tr>
+                                <td>LinearRegression</td>
+                                <td>0.097342</td>
+                                <td>0.101061</td>
+                                <td>0.123733</td>
+                                <td>0.088693</td>
+                            </tr>
+                            <tr>
+                                <td>Ridge</td>
+                                <td>0.097342</td>
+                                <td>0.101062</td>
+                                <td>0.123732</td>
+                                <td>0.088676</td>
+                            </tr>
+                            <tr>
+                                <td>Weighted Ensemble</td>
+                                <td>0.037426</td>
+                                <td>0.075688</td>
+                                <td>0.870463</td>
+                                <td>0.488847</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/model-comparison.jpg') }}" alt="So sánh hiệu suất các mô hình">
+                    <p class="image-caption">Hình 4: Biểu đồ so sánh hiệu suất các mô hình</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần 3: Kịch bản biến đổi khí hậu -->
+    <section class="docs-section" id="climate-scenarios">
+        <h2 class="section-title">Kịch bản Biến đổi Khí hậu</h2>
+        <div class="docs-content">
+            <div class="text-content">
+                <p>Để dự đoán ảnh hưởng của biến đổi khí hậu đến nồng độ Asen trong gạo, nghiên cứu sử dụng hai kịch bản biến đổi khí hậu chính:</p>
+
+                <ul>
+                    <li><strong>Kịch bản RCP 8.5 (Phát thải cao):</strong> Tượng trưng cho tình huống không có các chính sách khí hậu hiệu quả, dân số tăng nhanh, sự phụ thuộc vào nhiên liệu hóa thạch tiếp tục và tốc độ đổi mới công nghệ giảm phát thải chậm.</li>
+                    <li><strong>Kịch bản RCP 4.5 (Phát thải trung bình):</strong> Đại diện cho một kịch bản mà các chính sách và hành động khí hậu tương đối mạnh mẽ được thực hiện trên toàn cầu.</li>
+                </ul>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/climate-scenarios.jpg') }}" alt="Kịch bản biến đổi khí hậu">
+                    <p class="image-caption">Hình 5: So sánh các kịch bản biến đổi khí hậu RCP 4.5 và RCP 8.5</p>
+                </div>
+
+                <p>Các bước ứng dụng kịch bản với mô hình:</p>
+                <ol>
+                    <li>Chọn địa điểm cụ thể (tỉnh hoặc thành phố)</li>
+                    <li>Chọn kịch bản biến đổi khí hậu phù hợp</li>
+                    <li>Xử lý dữ liệu biến đổi</li>
+                    <li>Nhập dữ liệu vào mô hình</li>
+                    <li>Chạy mô hình dự đoán</li>
+                </ol>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/prediction-results.jpg') }}" alt="Kết quả dự đoán">
+                    <p class="image-caption">Hình 6: Dự đoán nồng độ Asen trong gạo theo các kịch bản khác nhau đến năm 2100</p>
+                </div>
+
+                <p>Nhận xét về ảnh hưởng của biến đổi khí hậu tới nồng độ asen trong gạo:</p>
+                <ul>
+                    <li>Cả hai kịch bản đều cho thấy xu hướng tăng nồng độ arsenic theo thời gian từ năm 2025 đến 2100.</li>
+                    <li>Trong giai đoạn đầu, hai kịch bản có sự tương đồng về mức độ tăng nồng độ arsenic.</li>
+                    <li>Có sự phân kỳ rõ rệt giữa hai kịch bản trong giai đoạn cuối thế kỷ.</li>
+                    <li>Kịch bản với mức phát thải cao hơn (RCP 8.5) dẫn đến sự gia tăng mạnh mẽ hơn về nồng độ arsenic.</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Container 3: Ý nghĩa của nghiên cứu -->
-    <div class="content-container">
-        <div class="content-image">
-            <img src="source/images/research-significance.jpg" alt="Ý nghĩa của nghiên cứu">
-        </div>
-        <div class="content-text">
-            <h2 class="content-title">Ý nghĩa của nghiên cứu</h2>
-            <div class="content-description">
+    <!-- Phần 4: Tiềm năng triển khai -->
+    <section class="docs-section" id="potential-implementation">
+        <h2 class="section-title">Tiềm năng Triển khai và Phát triển</h2>
+        <div class="docs-content">
+            <div class="text-content">
+                <h3>Tiềm năng Triển khai trong Thực tế</h3>
+                <p>Mô hình dự đoán nồng độ Asen trong gạo dưới tác động của biến đổi khí hậu có tiềm năng lớn để triển khai trong thực tế, mang lại lợi ích cho nhiều đối tượng:</p>
+
                 <ul>
-                    <li><strong>Đóng góp khoa học:</strong> Cung cấp hiểu biết mới về mối liên hệ giữa biến đổi khí hậu và sự tích lũy Arsenic trong gạo, góp phần làm phong phú thêm kiến thức về an toàn lương thực.</li>
-                    <li><strong>Công cụ dự báo:</strong> Phát triển công cụ dự đoán có khả năng ước tính nồng độ Arsenic trong gạo dựa trên các điều kiện môi trường và khí hậu, giúp cảnh báo sớm các khu vực có nguy cơ cao.</li>
-                    <li><strong>Hỗ trợ hoạch định chính sách:</strong> Cung cấp thông tin khoa học cho các nhà hoạch định chính sách trong việc xây dựng chiến lược ứng phó với biến đổi khí hậu và đảm bảo an toàn thực phẩm.</li>
-                    <li><strong>Hướng dẫn thực hành nông nghiệp:</strong> Đề xuất các biện pháp canh tác có thể giúp giảm thiểu sự tích lũy Arsenic trong gạo.</li>
+                    <li>Hỗ trợ quản lý và hoạch định chính sách nông nghiệp</li>
+                    <li>Đánh giá hiệu quả các biện pháp can thiệp</li>
+                    <li>Cung cấp thông tin cảnh báo sớm</li>
+                    <li>Hỗ trợ người nông dân lựa chọn phương pháp canh tác</li>
+                    <li>Nâng cao nhận thức cộng đồng</li>
+                </ul>
+
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/docs/implementation.jpg') }}" alt="Triển khai thực tế">
+                    <p class="image-caption">Hình 7: Minh họa ứng dụng mô hình trong thực tế</p>
+                </div>
+
+                <h3>Tiềm năng Phát triển trong Tương lai</h3>
+                <p>Để tối ưu hóa hiệu quả và mở rộng phạm vi ứng dụng, mô hình dự đoán nồng độ Asen trong gạo có thể được phát triển theo các hướng sau:</p>
+
+                <ul>
+                    <li>Mở rộng tích hợp các yếu tố ảnh hưởng</li>
+                    <li>Nâng cao độ chính xác và độ tin cậy</li>
+                    <li>Phát triển giao diện người dùng thân thiện và trực quan</li>
+                    <li>Kết hợp với các công nghệ hỗ trợ</li>
+                    <li>Nghiên cứu sâu về cơ chế hấp thụ Asen</li>
+                    <li>Xây dựng cơ sở dữ liệu mở và tăng cường hợp tác</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Container 4: Tầm nhìn trong tương lai -->
-    <div class="content-container reverse">
-        <div class="content-image">
-            <img src="source/images/future-vision.jpg" alt="Tầm nhìn trong tương lai">
-        </div>
-        <div class="content-text">
-            <h2 class="content-title">Tầm nhìn trong tương lai</h2>
-            <div class="content-description">
-                <p>Nghiên cứu về ảnh hưởng của biến đổi khí hậu đến nồng độ Arsenic trong gạo mở ra nhiều hướng phát triển quan trọng:</p>
-                <ul>
-                    <li><strong>Mở rộng mô hình dự báo:</strong> Phát triển mô hình dự báo toàn diện hơn với khả năng tích hợp dữ liệu thời gian thực từ các trạm quan trắc.</li>
-                    <li><strong>Phát triển giống lúa kháng Arsenic:</strong> Đẩy mạnh nghiên cứu và lai tạo các giống lúa có khả năng hạn chế hấp thu Arsenic.</li>
-                    <li><strong>Kỹ thuật canh tác thích ứng:</strong> Xây dựng và phổ biến các kỹ thuật canh tác lúa mới, thích ứng với biến đổi khí hậu.</li>
-                    <li><strong>Hệ thống cảnh báo tích hợp:</strong> Phát triển hệ thống cảnh báo trên nền tảng số, giúp điều chỉnh kế hoạch canh tác kịp thời.</li>
-                </ul>
+    <!-- Phần 5: Kết luận -->
+    <section class="docs-section" id="conclusion">
+        <h2 class="section-title">Kết luận</h2>
+        <div class="docs-content">
+            <div class="text-content">
+                <p>Nghiên cứu này đã thành công trong việc xây dựng một mô hình học máy mạnh mẽ, cụ thể là mô hình Weighted Ensemble kết hợp Random Forest và XGBoost, để dự đoán nồng độ Asen trong gạo dựa trên các yếu tố về đất và khí hậu. Cách tiếp cận này đã chứng minh được khả năng nắm bắt hiệu quả các mối quan hệ phi tuyến phức tạp, vượt trội hơn so với các phương pháp hồi quy tuyến tính truyền thống.</p>
+
+                <p>Với hệ số xác định (Test R²) đạt gần 0.489, mô hình có khả năng giải thích đáng kể sự biến thiên trong nồng độ Asen của gạo. Đặc biệt quan trọng, mô hình này được thiết kế để tích hợp các kịch bản biến đổi khí hậu, cho phép dự đoán nồng độ Asen trong gạo dưới các điều kiện nhiệt độ và lượng mưa thay đổi trong tương lai.</p>
+
+                <p>Điều này có ý nghĩa to lớn trong việc đánh giá rủi ro tiềm ẩn do biến đổi khí hậu gây ra đối với sự tích lũy Asen trong lúa gạo, từ đó cung cấp cơ sở khoa học cho việc xây dựng các biện pháp giảm thiểu và đảm bảo an ninh lương thực, an toàn thực phẩm cho cộng đồng trong bối cảnh biến đổi khí hậu ngày càng diễn biến phức tạp.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CSS cho các Container -->
-<style>
-.content-section {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
-}
-
-.content-container {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto 4rem auto;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-}
-
-.content-container.reverse {
-    flex-direction: row-reverse;
-}
-
-.content-image {
-    flex: 1;
-    height: 400px;
-    overflow: hidden;
-}
-
-.content-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.content-container:hover .content-image img {
-    transform: scale(1.05);
-}
-
-.content-text {
-    flex: 1;
-    padding: 2.5rem;
-}
-
-.content-title {
-    color: #2c3e50;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-.content-title:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(to right, #3498db, #2980b9);
-}
-
-.content-description {
-    color: #636e72;
-    line-height: 1.8;
-}
-
-.content-description p {
-    margin-bottom: 1rem;
-}
-
-.content-description ul {
-    padding-left: 1.5rem;
-}
-
-.content-description li {
-    margin-bottom: 0.8rem;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .content-container,
-    .content-container.reverse {
-        flex-direction: column;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    .content-image {
-        width: 100%;
-        height: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .content-image {
-        height: 250px;
-    }
-
-    .content-text {
-        padding: 1.5rem;
-    }
-
-    .content-title {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .content-image {
-        height: 200px;
-    }
-}
-</style>
-<!-- Container cho 3 phần chính -->
-<section class="features-section">
-    <div class="container">
-        <h2 class="section-title">Các tính năng chính</h2>
-
-        <div class="features-container">
-            <!-- Phần 1: Dự đoán nồng độ Asen -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="source/icons/prediction-icon.png" alt="Biểu tượng dự đoán">
-                </div>
-                <div class="feature-content">
-                    <h3 class="feature-title">Dự đoán nồng độ Asen trong gạo</h3>
-                    <div class="feature-description">
-                        <p>Ứng dụng Machine Learning để dự đoán nồng độ Asen trong gạo dựa trên các yếu tố môi trường và khí hậu.</p>
-                    </div>
-                    <div class="button-container">
-                        <a href="dudoan.html" class="feature-button">Khám phá ngay</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Phần 2: Kịch bản biến đổi khí hậu -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="source/icons/climate-icon.png" alt="Biểu tượng khí hậu">
-                </div>
-                <div class="feature-content">
-                    <h3 class="feature-title">Kịch bản biến đổi khí hậu tác động tới nồng độ Asen</h3>
-                    <div class="feature-description">
-                        <p>Phân tích các kịch bản biến đổi khí hậu và ảnh hưởng của chúng đến sự tích tụ Asen trong gạo.</p>
-                    </div>
-                    <div class="button-container">
-                        <a href="kichbanbiendoikhihau.html" class="feature-button">Khám phá ngay</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Phần 3: Tài liệu -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="source/icons/document-icon.png" alt="Biểu tượng tài liệu">
-                </div>
-                <div class="feature-content">
-                    <h3 class="feature-title">Tài liệu</h3>
-                    <div class="feature-description">
-                        <p>Tổng hợp các nghiên cứu, báo cáo khoa học và tài liệu tham khảo về mối quan hệ giữa biến đổi khí hậu và sự tích tụ Asen trong gạo.</p>
-                    </div>
-                    <div class="button-container">
-                        <a href="docs.html" class="feature-button">Tìm hiểu thêm</a>
-                    </div>
-                </div>
+    <!-- Phần 6: Tài liệu tham khảo -->
+    <section class="docs-section" id="references">
+        <h2 class="section-title">Tài liệu tham khảo</h2>
+        <div class="docs-content">
+            <div class="text-content">
+                <ol class="references-list">
+                    <li>Bộ Tài nguyên và Môi trường (2020). <em>Kịch bản biến đổi khí hậu</em>. NXB Tài Nguyên Môi trường bản đồ Việt Nam. <a href="https://imh.ac.vn/files/doc/2020/KB%20BDKH%202912.pdf" target="_blank">https://imh.ac.vn/files/doc/2020/KB%20BDKH%202912.pdf</a></li>
+                    <li>Zhao, F. J., Ma, Y., Zhu, Y. G., Tang, Z., & McGrath, S. P. (2019). <em>Soil contamination in China: Current status and mitigation strategies</em>. Nature Communications. <a href="https://www.nature.com/articles/s41467-019-12946-4" target="_blank">https://www.nature.com/articles/s41467-019-12946-4</a></li>
+                    <li>Met Office (2018). <em>UKCP18 Guidance: Representative Concentration Pathways</em>. <a href="https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/research/ukcp/ukcp18-guidance---representative-concentration-pathways.pdf" target="_blank">https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/research/ukcp/ukcp18-guidance---representative-concentration-pathways.pdf</a></li>
+                </ol>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
+
 
 
     <!-- Footer HTML -->
